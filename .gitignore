@@ -101,7 +101,12 @@ applet/
 *.su
 
 # PlatformIO files/dirs
-.pio*
+/.pio/*
+!/.pio/build
+/.pio/build/*
+!/.pio/build/STM32G0B1RE_btt
+/.pio/build/STM32G0B1RE_btt/*
+!/.pio/build/STM32G0B1RE_btt/firmware.bin
 .pioenvs
 .piolibdeps
 .clang_complete
@@ -138,7 +143,7 @@ CMakeLists.txt
 !buildroot/share/cmake/CMakeLists.txt
 src/CMakeLists.txt
 CMakeListsPrivate.txt
-build/
+# build/
 
 # CLion
 cmake-build-*
