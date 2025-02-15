@@ -195,6 +195,11 @@ void reset_bed_level() {
     // Get the resting Z position for after the XY move
     #ifdef MANUAL_PROBE_START_Z
       constexpr float finalz = _MAX(0, MANUAL_PROBE_START_Z); // If a MANUAL_PROBE_START_Z value is set, always respect it
+      if (leveling_is_valid()) {
+        finalz = bedlevel.z_values[
+          XY_TO_INDEX(pos, GRID_MAX_POINTS_X)
+        ];
+      }
     #else
       #warning "It's recommended to set some MANUAL_PROBE_START_Z value for manual leveling."
     #endif
